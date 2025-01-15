@@ -2,6 +2,7 @@
 
 import NavigationDots from "./(ui)/NavigationDots"
 import { useSection } from "./useSection"
+import FloatingInput from "./(ui)/FloatingInput"
 
 export default function HomeClient({ children }: { children: React.ReactNode }) {
     const { sections, activeSection, scrollToSection } = useSection()
@@ -20,6 +21,8 @@ export default function HomeClient({ children }: { children: React.ReactNode }) 
                 activeSection={activeSection}
                 scrollToSection={scrollToSection}
             />
+
+            <FloatingInput />
         </main>
     )
 } 
