@@ -1,6 +1,8 @@
 <div align="center">
-    <h1>Hendy Mamusung</h1>
-    <p>Framework Developer | System Architect | Tech Enthusiast</p>
+    <div style="background: linear-gradient(90deg, #4B79A1, #283E51); padding: 2rem; border-radius: 15px; margin: 1rem 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: white; font-size: 2.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Hendy Mamusung</h1>
+        <p style="background: linear-gradient(90deg, #FFD700, #FFA500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.2rem; margin-top: 0.5rem; font-weight: bold;">⚡ Framework Developer | 🎨 System Architect | 🚀 Tech Enthusiast</p>
+    </div>
 </div>
 
 ## Tech Stack 🚀
@@ -25,7 +27,12 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" width="40" height="40"/>
 </div>
 
-## Featured Project 🛠️
+
+## Stuff I Made 🛠️
+
+<div align="center">
+    <img src="./public/kontas-logo.gif" width="200"/>
+</div>
 
 ### Kontas Framework
 The next-generation server framework designed to revolutionize backend development. A powerful yet simple server framework that prioritizes developer experience.
@@ -71,7 +78,6 @@ The next-generation server framework designed to revolutionize backend developme
 </div>
 
 ---
-
 <div align="center">
     <b>Making server development simple and powerful with Kontas Framework 🚀</b>
 </div>
