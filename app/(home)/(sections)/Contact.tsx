@@ -40,10 +40,10 @@ export default function Contact() {
                     atau connect di social media
                 </p>
                 <div className="flex gap-4">
-                    <SocialButton href="https://twitter.com/yourusername" variant="secondary">
+                    <SocialButton href="https://x.com/hendymsn" variant="secondary">
                         <Twitter className="w-5 h-5" />
                     </SocialButton>
-                    <SocialButton href="https://github.com/yourusername" variant="secondary">
+                    <SocialButton href="https://github.com/hens-msn" variant="secondary">
                         <Github className="w-5 h-5" />
                     </SocialButton>
                 </div>

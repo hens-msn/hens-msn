@@ -23,11 +23,11 @@ export default function Role() {
 
                 {/* Social Buttons */}
                 <div className="flex gap-4 justify-center">
-                    <SocialButton href="https://github.com/yourusername" variant="primary">
+                    <SocialButton href="https://github.com/hens-msn" variant="primary">
                         <Github className="w-5 h-5" />
                         <span>GitHub</span>
                     </SocialButton>
-                    <SocialButton href="https://twitter.com/yourusername" variant="secondary">
+                    <SocialButton href="https://x.com/hendymsn" variant="secondary">
                         <Twitter className="w-5 h-5" />
                         <span>Twitter</span>
                     </SocialButton>
