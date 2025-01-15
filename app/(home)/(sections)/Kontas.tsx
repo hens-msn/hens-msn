@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 export default function Kontas() {
     return (
         <div id="kontas" className="h-screen snap-start flex items-center justify-center">
-            <div className="w-full">
+            <div className="w-full px-4">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -17,13 +17,13 @@ export default function Kontas() {
                     <span className="bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/20">
                         Introducing
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold">Kontas Framework</h2>
-                    <p className="mt-6 text-xl text-gray-400">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Kontas Framework</h2>
+                    <p className="mt-6 text-lg sm:text-xl text-gray-400">
                         Framework modern utk React developers yg pengen bikin apps dgn cepat & efisien
                     </p>
                 </motion.div>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
                     <FeatureCard 
                         icon={<Code2 className="w-7 h-7 text-blue-400" />}
                         title="Modern Stack"
@@ -41,20 +41,20 @@ export default function Kontas() {
                     />
                 </div>
 
-                <div className="mt-16 flex justify-center">
+                <div className="mt-12 sm:mt-16 flex justify-center">
                     <motion.a 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         href="https://kontas.id" 
                         target="_blank"
                         className={cn(
-                            "group flex items-center gap-3 px-10 py-5 rounded-full font-medium",
+                            "group flex items-center gap-3 px-6 sm:px-10 py-4 sm:py-5 rounded-full font-medium",
                             "bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500",
                             "hover:opacity-90 transition-all"
                         )}
                     >
                         Visit Kontas.id
-                        <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.a>
                 </div>
             </div>

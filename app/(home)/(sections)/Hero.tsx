@@ -40,9 +40,9 @@ export default function Hero() {
             id="hero"
             className="h-screen snap-start flex items-center justify-center"
         >
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center px-4">
                 {/* Profile Image */}
-                <div className="relative w-48 h-48 md:w-[280px] md:h-[280px] group mb-8">
+                <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-[280px] md:h-[280px] group mb-6 sm:mb-8">
                     <motion.div 
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -78,7 +78,7 @@ export default function Hero() {
                 </div>
                 
                 {/* Name */}
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-center mb-4">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-center mb-4">
                     Hendy Mamusung
                 </h1>
 
@@ -92,7 +92,7 @@ export default function Hero() {
                         {welcomeTexts.map((text, index) => (
                             <span
                                 key={index}
-                                className="welcome-text absolute text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 font-medium text-2xl transition-all duration-500"
+                                className="welcome-text absolute text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 font-medium text-lg sm:text-2xl transition-all duration-500"
                                 style={{ 
                                     opacity: index === currentTextIndex ? 1 : 0,
                                     transform: index === currentTextIndex ? 'translateY(0)' : 'translateY(10px)',
