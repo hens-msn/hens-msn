@@ -13,12 +13,14 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center space-y-4 mb-12"
+                    className="text-center space-y-8 mb-12"
                 >
-                    <span className="bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/20">
+                    <span className="bg-gradient-to-r from-orange-500/20 to-green-500/20 text-white px-4 py-2 rounded-full text-sm font-medium border border-orange-500/30">
                         Contact
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold">Let&apos;s Connect! 🤝</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400">
+                        Let&apos;s Connect! 🤝
+                    </h2>
                 </motion.div>
 
                 {/* Contact Card */}
@@ -36,16 +38,16 @@ export default function Contact() {
                     <div className="text-center sm:text-left sm:flex items-center justify-between p-4 rounded-xl bg-white/5 mb-8">
                         <div>
                             <h3 className="text-lg font-medium mb-1">Email</h3>
-                            <p className="text-gray-400">hendy@example.com</p>
+                            <p className="text-gray-400">hendymms@engineer.com</p>
                         </div>
                         <motion.a 
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href="mailto:hendy@example.com"
+                            href="mailto:hendymms@engineer.com"
                             className={cn(
                                 "inline-flex items-center gap-2 px-6 py-3 rounded-full mt-4 sm:mt-0",
-                                "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500",
-                                "hover:opacity-90 transition-all text-sm font-medium"
+                                "bg-gradient-to-r from-orange-600 via-yellow-600 to-green-600",
+                                "hover:opacity-90 transition-all text-sm font-medium text-white"
                             )}
                         >
                             Send Email
