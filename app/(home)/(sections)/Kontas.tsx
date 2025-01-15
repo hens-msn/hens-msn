@@ -12,32 +12,33 @@ export default function Kontas() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center max-w-3xl mx-auto space-y-4"
+                    className="text-center max-w-3xl mx-auto space-y-8"
                 >
-                    <span className="bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/20">
+                    <span className="bg-gradient-to-r from-orange-500/20 to-green-500/20 text-white px-4 py-2 rounded-full text-sm font-medium border border-orange-500/30">
                         Introducing
                     </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Kontas Framework</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400">
+                        Kontas Framework
+                    </h2>
                     <p className="mt-6 text-lg sm:text-xl text-gray-400">
-                        Framework modern utk React developers yg pengen bikin apps dgn cepat & efisien
+                        Framework web minimalis berbasis Bun yg fokus pada kesederhanaan & performa tinggi. Dibuat utk developer modern.
                     </p>
                 </motion.div>
 
                 <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
                     <FeatureCard 
-                        icon={<Code2 className="w-7 h-7 text-blue-400" />}
-                        title="Modern Stack"
-                        description="Built dgn TypeScript, React 18, & teknologi modern lainnya"
+                        icon={<Code2 className="w-7 h-7 text-orange-400" />}
+                        title="Simple & Powerful"
+                        description="File-based routing, middleware & error handling 🎯"
                     />
                     <FeatureCard 
-                        icon={<Sparkles className="w-7 h-7 text-purple-400" />}
-                        title="Developer Experience"
-                        description="Zero config, auto-complete, & type safety out of the box"
-                    />
+                        icon={<Sparkles className="w-7 h-7 text-yellow-400" />}
+                        title="Enterprise Ready"
+                        description="CSRF, rate limiting & security headers built-in 🔒"                    />
                     <FeatureCard 
-                        icon={<Users className="w-7 h-7 text-pink-400" />}
-                        title="Active Community"
-                        description="Join 1000+ developers yg udh pake Kontas Framework"
+                        icon={<Users className="w-7 h-7 text-green-400" />}
+                        title="Developer First"
+                        description="Hot reload, TypeScript & auto-completion 🚀"
                     />
                 </div>
 
@@ -48,13 +49,13 @@ export default function Kontas() {
                         href="https://kontas.id" 
                         target="_blank"
                         className={cn(
-                            "group flex items-center gap-3 px-6 sm:px-10 py-4 sm:py-5 rounded-full font-medium",
-                            "bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500",
-                            "hover:opacity-90 transition-all"
+                            "group inline-flex items-center gap-2",
+                            "text-lg text-gray-400 hover:text-white transition-colors",
+                            "border-b-2 border-transparent hover:border-orange-400/50 pb-1"
                         )}
                     >
-                        Visit Kontas.id
-                        <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                        Explore the possibilities
+                        <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </motion.a>
                 </div>
             </div>
