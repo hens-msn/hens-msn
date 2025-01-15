@@ -55,7 +55,7 @@ export default function FloatingInput() {
                             type="text"
                             value={message}
                             onChange={handleInputChange}
-                            placeholder="Ketik pesan kamu di sini..."
+                            placeholder="Ask me anything..."
                             className={cn(
                                 "flex-1 px-4 py-3 rounded-xl",
                                 "bg-white/5",
