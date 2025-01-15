@@ -8,19 +8,20 @@ interface NavigationDotsProps {
 
 export default function NavigationDots({ sections, activeSection, scrollToSection }: NavigationDotsProps) {
     return (
-        <div className="fixed right-4 sm:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 sm:gap-4">
+        <div className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4">
             {sections.map((section) => (
-                <button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
-                    className={cn(
-                        "w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all",
-                        activeSection === section 
-                            ? "bg-white scale-125" 
-                            : "bg-white/50 hover:bg-white/75"
-                    )}
-                    aria-label={`Scroll to ${section} section`}
-                />
+                <div key={section} className="relative group">
+                    <button
+                        onClick={() => scrollToSection(section)}
+                        className={cn(
+                            "relative w-2 h-2 rounded-full transition-all duration-300",
+                            activeSection === section 
+                                ? "bg-white shadow-[0_0_10px_rgba(255,255,255,0.7)] scale-125" 
+                                : "bg-white/20 group-hover:bg-white/40"
+                        )}
+                        aria-label={`Scroll to ${section} section`}
+                    />
+                </div>
             ))}
         </div>
     )
