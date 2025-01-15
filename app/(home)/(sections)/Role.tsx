@@ -1,6 +1,7 @@
 "use client"
 
-import { Github, Twitter } from "lucide-react"
+import { Github, MessageCircle } from "lucide-react"
+import { BsTwitterX } from "react-icons/bs"
 import { motion } from "framer-motion"
 import SocialButton from "../(ui)/SocialButton"
 
@@ -23,13 +24,20 @@ export default function Role() {
 
                 {/* Social Buttons */}
                 <div className="flex gap-4 justify-center">
+                    <SocialButton 
+                        href="https://wa.me/6282254505451?text=Hai%20kak,%20boleh%20kenalan?" 
+                        variant="whatsapp"
+                    >
+                        <MessageCircle className="w-5 h-5" />
+                        <span>WhatsApp</span>
+                    </SocialButton>
                     <SocialButton href="https://github.com/hens-msn" variant="primary">
                         <Github className="w-5 h-5" />
                         <span>GitHub</span>
                     </SocialButton>
-                    <SocialButton href="https://x.com/hendymsn" variant="secondary">
-                        <Twitter className="w-5 h-5" />
-                        <span>Twitter</span>
+                    <SocialButton href="https://x.com/hendymsn" variant="twitter">
+                        <BsTwitterX className="w-5 h-5" />
+                        <span>X Twitter</span>
                     </SocialButton>
                 </div>
             </motion.div>
