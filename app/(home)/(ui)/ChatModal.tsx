@@ -19,6 +19,7 @@ interface ChatModalProps {
     setMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>
     isLoading: boolean
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+    sendMessage: (message: string) => Promise<void>
 }
 
 // === Animations Config ===
@@ -63,9 +64,8 @@ export default function ChatModal({
     onClose, 
     initialMessage,
     messages,
-    setMessages,
     isLoading,
-    setIsLoading
+    sendMessage
 }: ChatModalProps) {
     // === State & Refs ===
     const [message, setMessage] = useState("")
@@ -82,19 +82,9 @@ export default function ChatModal({
         const trimmedMessage = message.trim()
         if (!trimmedMessage) return
 
-        setMessages(prev => [...prev, { isUser: true, text: trimmedMessage }])
-        setMessage("")
-        
-        setIsLoading(true)
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1000))
-            setMessages(prev => [...prev, { 
-                isUser: false, 
-                text: "Ini contoh response dari AI aowkaokwaokaw 🤖" 
-            }])
-        } finally {
-            setIsLoading(false)
-        }
+        const currentMessage = trimmedMessage
+        setMessage("") // Clear message dulu
+        await sendMessage(currentMessage)
     }
 
     // === Effects ===
@@ -158,7 +148,7 @@ export default function ChatModal({
                             <div className="max-h-[60vh] overflow-y-auto scrollbar-none p-4">
                                 <div className="flex flex-col gap-4">
                                     {messages.map(renderMessage)}
-                                    {isLoading && renderLoadingDots()}
+                                    {isLoading && messages[messages.length - 1]?.isUser && renderLoadingDots()}
                                     <div ref={messagesEndRef} />
                                 </div>
                             </div>

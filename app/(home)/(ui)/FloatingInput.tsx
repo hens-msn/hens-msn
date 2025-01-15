@@ -5,24 +5,12 @@ import { motion } from "framer-motion"
 import { Send } from "lucide-react"
 import { cn } from "@/lib/utils"
 import ChatModal from "./ChatModal"
-import { HensAI } from 'hens-ai'
-
-interface ChatMessage {
-    isUser: boolean
-    text: string
-}
-
-// Inisialisasi AI di luar component
-const ai = new HensAI({
-    apiKey: process.env.NEXT_PUBLIC_ANTHROPIC_API_KEY!,
-    model: 'hens-next-level'
-})
+import { useChat } from '../useChat'
 
 export default function FloatingInput() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [message, setMessage] = useState("")
-    const [messages, setMessages] = useState<ChatMessage[]>([])
-    const [isLoading, setIsLoading] = useState(false)
+    const { messages, setMessages, isLoading, setIsLoading, sendMessage } = useChat()
     const inputRef = useRef<HTMLInputElement>(null)
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,37 +26,9 @@ export default function FloatingInput() {
             setIsModalOpen(true)
         }
         
-        const userMessage = message
-        setMessages(prev => [...prev, { isUser: true, text: userMessage }])
+        const currentMessage = message
         setMessage("")
-        
-        setIsLoading(true)
-        try {
-            const stream = await ai.generateTextStream({
-                prompt: userMessage
-            })
-
-            let fullResponse = ""
-            setMessages(prev => [...prev, { isUser: false, text: "" }])
-
-            for await (const chunk of stream) {
-                if (chunk.type === 'content_block_delta' && 'text' in chunk.delta) {
-                    fullResponse += chunk.delta.text
-                    setMessages(prev => [
-                        ...prev.slice(0, -1),
-                        { isUser: false, text: fullResponse }
-                    ])
-                }
-            }
-        } catch (error) {
-            console.error("Error:", error)
-            setMessages(prev => [...prev, { 
-                isUser: false, 
-                text: "Maaf, ada error nih 😅 Coba lagi ya!" 
-            }])
-        } finally {
-            setIsLoading(false)
-        }
+        await sendMessage(currentMessage)
     }
 
     return (
@@ -134,6 +94,7 @@ export default function FloatingInput() {
                 setMessages={setMessages}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
+                sendMessage={sendMessage}
             />
         </>
     )
