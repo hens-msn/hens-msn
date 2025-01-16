@@ -165,12 +165,15 @@ export default function ChatModal({
                                         whileTap={{ scale: 0.95 }}
                                         className={inputStyles.button(isLoading)}
                                         disabled={isLoading}
+                                        aria-label="Kirim pesan"
                                     >
                                         {isLoading ? (
                                             <motion.div 
                                                 animate={spinnerAnimation}
                                                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                                                 className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full" 
+                                                role="status"
+                                                aria-label="Mengirim pesan..."
                                             />
                                         ) : (
                                             <Send className="w-5 h-5" />

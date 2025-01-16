@@ -73,6 +73,7 @@ export default function FloatingInput() {
                                 "bg-gradient-to-r from-orange-600 to-green-600",
                                 "hover:opacity-90 transition-opacity"
                             )}
+                            aria-label="Kirim pesan"
                         >
                             <Send className="w-5 h-5" />
                         </motion.button>
