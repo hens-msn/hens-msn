@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 interface ChatMessage {
     isUser: boolean
     text: string
+    isStreaming?: boolean
 }
 
 interface ChatModalProps {
@@ -102,7 +103,7 @@ export default function ChatModal({
     }, [isLoading, messages, isOpen])
 
     // === Render Methods ===
-    const renderMessage = ({ isUser, text }: ChatMessage, idx: number) => (
+    const renderMessage = ({ isUser, text, isStreaming }: ChatMessage, idx: number) => (
         <motion.div
             key={idx}
             initial={{ opacity: 0, y: 10 }}
@@ -110,19 +111,13 @@ export default function ChatModal({
             className={`flex ${isUser ? "justify-end" : "justify-start"}`}
         >
             <div className={cn(messageStyles.base, isUser ? messageStyles.user : messageStyles.ai)}>
-                {text}
-            </div>
-        </motion.div>
-    )
-
-    const renderLoadingDots = () => (
-        <motion.div className="flex justify-start">
-            <div className="max-w-[80%] rounded-xl px-5 py-4 bg-white/10 flex items-center">
-                <motion.div
-                    animate={loadingAnimation}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="h-1 w-12 rounded-full"
-                />
+                {text || (isStreaming && (
+                    <motion.div
+                        animate={loadingAnimation}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="h-1 w-12 rounded-full"
+                    />
+                ))}
             </div>
         </motion.div>
     )
@@ -148,7 +143,6 @@ export default function ChatModal({
                             <div className="max-h-[60vh] overflow-y-auto scrollbar-none p-4">
                                 <div className="flex flex-col gap-4">
                                     {messages.map(renderMessage)}
-                                    {isLoading && messages[messages.length - 1]?.isUser && renderLoadingDots()}
                                     <div ref={messagesEndRef} />
                                 </div>
                             </div>

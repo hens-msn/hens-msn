@@ -4,6 +4,7 @@ import { ai } from '@/lib/ai'
 export interface ChatMessage {
     isUser: boolean
     text: string
+    isStreaming?: boolean
 }
 
 export function useChat() {
@@ -13,33 +14,35 @@ export function useChat() {
     const sendMessage = async (message: string) => {
         if (!message.trim()) return
         
-        setMessages(prev => [...prev, { isUser: true, text: message }])
+        setMessages(prev => [...prev, 
+            { isUser: true, text: message },
+            { isUser: false, text: '', isStreaming: true }
+        ])
+        
         setIsLoading(true)
         
         try {
-            const response = await ai.generateText(message)
-            
-            setMessages(prev => [...prev, { 
-                isUser: false, 
-                text: response 
-            }])
-            
+            await ai.generateTextStream(message, (text) => {
+                setMessages(prev => prev.map((msg, idx) => 
+                    idx === prev.length - 1 ? { ...msg, text } : msg
+                ))
+            })
+
+            setMessages(prev => prev.map((msg, idx) => 
+                idx === prev.length - 1 ? { ...msg, isStreaming: false } : msg
+            ))
+
         } catch (error) {
-            console.error("Error:", error)
-            setMessages(prev => [...prev, { 
-                isUser: false, 
-                text: "Waduh error nih 😅 Coba lagi ya!" 
-            }])
+            console.error('Error generating stream:', error)
+            setMessages(prev => prev.map((msg, idx) => 
+                idx === prev.length - 1 
+                    ? { ...msg, text: "Waduh error nih 😅 Coba lagi ya!", isStreaming: false } 
+                    : msg
+            ))
         } finally {
             setIsLoading(false)
         }
     }
 
-    return {
-        messages,
-        setMessages,
-        isLoading,
-        setIsLoading,
-        sendMessage
-    }
+    return { messages, setMessages, isLoading, setIsLoading, sendMessage }
 }
