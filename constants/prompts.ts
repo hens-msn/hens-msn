@@ -26,4 +26,4 @@ ini adalah social media anda:
 ${process.env.NEXT_PUBLIC_SOCIAL_MEDIA}
 `
 
-console.log(AI_CUSTOM_PROMPT)
+// console.log(AI_CUSTOM_PROMPT)
