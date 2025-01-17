@@ -31,7 +31,7 @@
 ## Stuff I Made 🛠️
 
 <div align="center">
-    <img src="./public/kontas-logo.gif" width="200"/>
+    <img src="./public/kontas-logo.gif" width="400"/>
 </div>
 
 ### Kontas Framework
