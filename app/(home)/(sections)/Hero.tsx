@@ -3,7 +3,7 @@
 import { Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { useState, useEffect } from "react"
+import { useRotatingText } from "../useRotatingText"
 
 export default function Hero() {
     const welcomeTexts = [
@@ -13,27 +13,7 @@ export default function Hero() {
         "Let's build something cool! 🔥"
     ]
 
-    const [currentTextIndex, setCurrentTextIndex] = useState(0)
-
-    useEffect(() => {
-        const quotes = document.querySelectorAll('.welcome-text');
-        
-        const rotateQuotes = () => {
-            quotes.forEach((quote, index) => {
-                if (index === currentTextIndex) {
-                    (quote as HTMLElement).style.opacity = '1';
-                    (quote as HTMLElement).style.transform = 'translateY(0)';
-                } else {
-                    (quote as HTMLElement).style.opacity = '0';
-                    (quote as HTMLElement).style.transform = 'translateY(10px)';
-                }
-            });
-            setCurrentTextIndex((prev) => (prev + 1) % welcomeTexts.length);
-        };
-
-        const interval = setInterval(rotateQuotes, 3000);
-        return () => clearInterval(interval);
-    }, [currentTextIndex, welcomeTexts.length]);
+    const { currentTextIndex } = useRotatingText({ texts: welcomeTexts })
 
     return (
         <motion.div 
@@ -92,7 +72,7 @@ export default function Hero() {
                         {welcomeTexts.map((text, index) => (
                             <span
                                 key={index}
-                                className="welcome-text absolute text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 font-medium text-lg sm:text-2xl transition-all duration-500"
+                                className="rotating-text absolute text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 font-medium text-lg sm:text-2xl transition-all duration-500"
                                 style={{ 
                                     opacity: index === currentTextIndex ? 1 : 0,
                                     transform: index === currentTextIndex ? 'translateY(0)' : 'translateY(10px)',
