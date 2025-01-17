@@ -50,7 +50,7 @@ The next-generation server framework designed to revolutionize backend developme
 
 ## GitHub Analytics ⚡
 
-<img height="300em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hens-msn&layout=compact&theme=light"/>
+<img height="200em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hens-msn&layout=compact&theme=light"/>
 
 ## Portfolio & Contact 📫
 
