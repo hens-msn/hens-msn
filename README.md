@@ -27,6 +27,11 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" width="40" height="40"/>
 </div>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake.svg" />
+</picture>
 
 ## Stuff I Made 🛠️
 
@@ -50,7 +55,7 @@ The next-generation server framework designed to revolutionize backend developme
 
 ## GitHub Analytics ⚡
 
-<img height="200em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hens-msn&layout=compact&theme=light"/>
+<img height="200em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hens-msn&layout=compact&theme=light&cache_seconds=86400"/>
 
 ## Portfolio & Contact 📫
 
