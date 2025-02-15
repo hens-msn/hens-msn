@@ -57,18 +57,26 @@ The next-generation server framework designed to revolutionize backend developme
 The CLI for 5 minutes to create a new backend project with any language you want.
 
 - **Website**: [henotic.org](https://henotic.org)
-- **Language**: 
-  - Go
-  - PHP
-  - Rust
-  - Java
-  - TypeScript
-- **Database**:
-  - PostgreSQL
-  - MySQL/MariaDB
-  - SQLite
-  - MongoDB
-  - Redis
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Language</strong>:<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="20"/> Go<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="20"/> PHP<br>
+      <img src="https://www.rust-lang.org/logos/rust-logo-128x128.png" width="20"/> Rust<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="20"/> Java<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="20"/> TypeScript
+    </td>
+    <td width="50%">
+      <strong>Database</strong>:<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" width="20"/> PostgreSQL<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" width="20"/> MySQL/MariaDB<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" width="20"/> SQLite<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" width="20"/> MongoDB<br>
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" width="20"/> Redis
+    </td>
+  </tr>
+</table>
 
 ## GitHub Analytics ⚡
 
