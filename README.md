@@ -53,6 +53,23 @@ The next-generation server framework designed to revolutionize backend developme
   - 🏃‍♂️ High Performance
   - 🔒 Security First
 
+### Henotic CLI
+The CLI for 5 minutes to create a new backend project with any language you want.
+
+- **Website**: [henotic.org](https://henotic.org)
+- **Language**: 
+  - Go
+  - PHP
+  - Rust
+  - Java
+  - TypeScript
+- **Database**:
+  - PostgreSQL
+  - MySQL/MariaDB
+  - SQLite
+  - MongoDB
+  - Redis
+
 ## GitHub Analytics ⚡
 
 <img height="200em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hens-msn&layout=compact&theme=light&cache_seconds=86400"/>
