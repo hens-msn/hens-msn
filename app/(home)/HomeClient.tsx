@@ -1,8 +1,7 @@
 "use client"
 
-import NavigationDots from "./(ui)/NavigationDots"
-import { useSection } from "./useSection"
-// import FloatingInput from "./(ui)/FloatingInput"
+import NavigationDots from "../../components/NavigationDots"
+import { useSection } from "../../hooks/useSection"
 
 export default function HomeClient({ children }: { children: React.ReactNode }) {
     const { sections, activeSection, scrollToSection } = useSection()
@@ -30,9 +29,6 @@ export default function HomeClient({ children }: { children: React.ReactNode }) 
                 activeSection={activeSection}
                 scrollToSection={scrollToSection}
             />
-
-            {/* FloatingInput - Disabled for now */}
-            {/* <FloatingInput /> */}
         </main>
     )
 } 

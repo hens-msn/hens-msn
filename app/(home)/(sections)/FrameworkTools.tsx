@@ -10,7 +10,6 @@ export default function FrameworkTools() {
             name: "Kontas Framework",
             description: "Minimalist web framework built on Bun with file-based routing and enterprise security",
             features: ["File-based routing", "CSRF protection", "TypeScript support"],
-            color: "from-orange-500 to-red-500",
             url: "https://kontas.id"
         },
         {
@@ -18,7 +17,6 @@ export default function FrameworkTools() {
             name: "Henotic CLI",
             description: "Backend generator supporting TypeScript, Go, Rust, PHP, and Java with modern architecture",
             features: ["Multi-language", "Clean architecture", "Auto-generation"],
-            color: "from-blue-500 to-cyan-500",
             url: "https://github.com/henotic/henotic-cli"
         },
         {
@@ -26,20 +24,13 @@ export default function FrameworkTools() {
             name: "Henotic GitCo",
             description: "Git workflow acceleration tool for faster commits and streamlined version control",
             features: ["Fast commits", "Auto-staging", "Workflow optimization"],
-            color: "from-green-500 to-emerald-500",
             url: "https://github.com/henotic/henotic-gitco"
         }
     ]
 
     return (
         <section id="framework" className="h-screen snap-start flex items-center justify-center relative">
-            {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-orange-500/[0.02] rounded-full blur-3xl" />
-                <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-red-500/[0.02] rounded-full blur-3xl" />
-            </div>
-
-            <div className="w-full px-4 relative z-10 max-w-7xl mx-auto">
+            <div className="w-full px-4 relative z-10 max-w-5xl mx-auto">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -55,10 +46,6 @@ export default function FrameworkTools() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-full border border-orange-500/20 mb-6">
-                                <Zap className="w-4 h-4 text-orange-500" />
-                                <span className="text-sm font-medium text-orange-600">My Creations</span>
-                            </div>
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4">
                                 Framework & Tools
                             </h2>
@@ -70,15 +57,15 @@ export default function FrameworkTools() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-light"
                         >
                             Developer tools and frameworks designed to accelerate development workflow 
                             and improve code quality across multiple languages and platforms.
                         </motion.p>
                     </div>
 
-                    {/* Tools Grid */}
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    {/* Tools Grid - Minimalist */}
+                    <div className="grid lg:grid-cols-3 gap-16">
                         {tools.map((tool, index) => {
                             const IconComponent = tool.icon
                             return (
@@ -88,40 +75,44 @@ export default function FrameworkTools() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
-                                    className="group"
+                                    className="group space-y-4"
                                 >
                                     <motion.a
                                         href={tool.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ y: -5 }}
-                                        className="block h-full p-8 rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/50 hover:bg-white/70 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                                        whileHover={{ y: -2 }}
+                                        className="block space-y-4 cursor-pointer"
                                     >
-                                        {/* Icon */}
-                                        <div className="flex justify-center mb-6">
-                                            <div className="w-16 h-16 rounded-xl bg-slate-100/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                                <IconComponent className="w-8 h-8 text-slate-500" />
-                                            </div>
+                                        {/* Minimal Icon */}
+                                        <div className="flex justify-center">
+                                            <motion.div 
+                                                whileHover={{ scale: 1.1 }}
+                                                className="w-12 h-12 flex items-center justify-center"
+                                            >
+                                                <IconComponent className="w-6 h-6 text-slate-400 group-hover:text-orange-500 transition-all duration-500" />
+                                            </motion.div>
                                         </div>
                                         
                                         {/* Content */}
-                                        <div className="space-y-4 text-center">
+                                        <div className="space-y-3 text-center">
                                             <div className="flex items-center justify-center gap-2">
-                                                <h3 className="text-xl font-semibold text-slate-900">
+                                                <h3 className="text-lg font-light text-slate-900 group-hover:text-slate-700 transition-colors duration-300">
                                                     {tool.name}
                                                 </h3>
-                                                <ExternalLink className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                                <ExternalLink className="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                                             </div>
-                                            <p className="text-sm text-slate-600 leading-relaxed">
+                                            <p className="text-sm text-slate-500 leading-relaxed font-light max-w-xs mx-auto">
                                                 {tool.description}
                                             </p>
                                             
-                                            {/* Features */}
-                                            <div className="space-y-2">
+                                            {/* Minimal Features */}
+                                            <div className="space-x-1 text-xs text-slate-400 font-light">
                                                 {tool.features.map((feature, idx) => (
-                                                    <div key={idx} className="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs text-slate-600 mx-1">
+                                                    <span key={idx}>
                                                         {feature}
-                                                    </div>
+                                                        {idx < tool.features.length - 1 && " • "}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -131,18 +122,18 @@ export default function FrameworkTools() {
                         })}
                     </div>
 
-                    {/* Bottom CTA */}
+                    {/* Minimal CTA */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.8 }}
-                        className="pt-8"
+                        className="pt-12"
                     >
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                            className="px-8 py-3 bg-white border border-slate-200 rounded-full text-slate-700 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:bg-slate-50"
                             onClick={() => {
                                 document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
                             }}
@@ -152,6 +143,15 @@ export default function FrameworkTools() {
                     </motion.div>
                 </motion.div>
             </div>
+
+            {/* Minimal scroll indicator */}
+            <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            >
+                <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+            </motion.div>
         </section>
     )
 } 

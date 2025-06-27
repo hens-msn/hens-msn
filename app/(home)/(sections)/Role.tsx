@@ -24,13 +24,7 @@ export default function Role() {
 
     return (
         <section id="role" className="h-screen snap-start flex items-center justify-center relative">
-            {/* Subtle background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/[0.02] rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/[0.02] rounded-full blur-3xl" />
-            </div>
-
-            <div className="w-full px-4 relative z-10 max-w-6xl mx-auto">
+            <div className="w-full px-4 relative z-10 max-w-4xl mx-auto">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -57,15 +51,15 @@ export default function Role() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-light"
                         >
                             Passionate developer creating tools and frameworks that empower others. 
                             Building the future with clean code and innovative solutions.
                         </motion.p>
                     </div>
 
-                    {/* Features Grid */}
-                    <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+                    {/* Features - Minimalist Grid */}
+                    <div className="grid md:grid-cols-3 gap-16 lg:gap-20">
                         {features.map((feature, index) => {
                             const IconComponent = feature.icon
                             return (
@@ -75,43 +69,44 @@ export default function Role() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
-                                    className="group"
+                                    className="group space-y-4"
                                 >
-                                    <div className="space-y-4 p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/50 hover:bg-white/70 hover:shadow-xl transition-all duration-300">
-                                        {/* Icon */}
-                                        <div className="flex justify-center">
-                                            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                                <IconComponent className="w-8 h-8 text-orange-600" />
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Content */}
-                                        <div className="space-y-2">
-                                            <h3 className="text-lg font-medium text-slate-900">
-                                                {feature.title}
-                                            </h3>
-                                            <p className="text-sm text-slate-600 leading-relaxed">
-                                                {feature.description}
-                                            </p>
-                                        </div>
+                                    {/* Minimal Icon */}
+                                    <div className="flex justify-center">
+                                        <motion.div 
+                                            whileHover={{ scale: 1.1 }}
+                                            className="w-12 h-12 flex items-center justify-center"
+                                        >
+                                            <IconComponent className="w-6 h-6 text-slate-400 group-hover:text-orange-500 transition-all duration-500" />
+                                        </motion.div>
+                                    </div>
+                                    
+                                    {/* Content */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-lg font-light text-slate-900 group-hover:text-slate-700 transition-colors duration-300">
+                                            {feature.title}
+                                        </h3>
+                                        <p className="text-sm text-slate-500 leading-relaxed font-light max-w-xs mx-auto">
+                                            {feature.description}
+                                        </p>
                                     </div>
                                 </motion.div>
                             )
                         })}
                     </div>
 
-                    {/* Bottom CTA */}
+                    {/* Minimal CTA */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.8 }}
-                        className="pt-8"
+                        className="pt-12"
                     >
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                            className="px-8 py-3 bg-white border border-slate-200 rounded-full text-slate-700 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:bg-slate-50"
                             onClick={() => {
                                 document.getElementById('framework')?.scrollIntoView({ behavior: 'smooth' })
                             }}
@@ -121,6 +116,15 @@ export default function Role() {
                     </motion.div>
                 </motion.div>
             </div>
+
+            {/* Minimal scroll indicator */}
+            <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            >
+                <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+            </motion.div>
         </section>
     )
 } 
