@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react"
+import { useState, useEffect, useRef, useMemo, useCallback } from "react"
 
 export const useSection = () => {
     const sections = useMemo(() => [
@@ -11,7 +11,22 @@ export const useSection = () => {
     ], [])
     
     const [activeSection, setActiveSection] = useState(sections[0])
+    const [isMobile, setIsMobile] = useState(false)
     const observerRef = useRef<IntersectionObserver | null>(null)
+    
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+        
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
+
+    const setActiveSectionManually = useCallback((section: string) => {
+        setActiveSection(section)
+    }, [])
 
     useEffect(() => {
         // Setup intersection observer
@@ -57,6 +72,8 @@ export const useSection = () => {
     return {
         sections,
         activeSection,
-        scrollToSection
+        scrollToSection,
+        isMobile,
+        setActiveSectionManually
     }
 } 

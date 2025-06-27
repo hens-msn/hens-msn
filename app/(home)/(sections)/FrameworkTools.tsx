@@ -29,7 +29,7 @@ export default function FrameworkTools() {
     ]
 
     return (
-        <section id="framework" className="h-screen snap-start flex items-center justify-center relative">
+        <section id="framework" className="min-h-screen md:h-screen snap-start flex items-center justify-center relative py-16 md:py-0">
             <div className="w-full px-4 relative z-10 max-w-5xl mx-auto">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,7 @@ export default function FrameworkTools() {
             <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+                className="hidden md:block absolute bottom-12 left-1/2 transform -translate-x-1/2"
             >
                 <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
             </motion.div>

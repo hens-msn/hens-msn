@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <motion.section 
             id="hero"
-            className="h-screen snap-start flex items-center justify-center relative"
+            className="min-h-screen md:h-screen snap-start flex items-center justify-center relative py-16 md:py-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -78,7 +78,15 @@ export default function Hero() {
                         whileTap={{ scale: 0.95 }}
                         className="px-8 py-3 bg-white border border-slate-200 rounded-full text-slate-700 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:bg-slate-50"
                         onClick={() => {
-                            document.getElementById('role')?.scrollIntoView({ behavior: 'smooth' })
+                            // For mobile with bottom tab, we need to trigger the section change differently
+                            const isMobile = window.innerWidth < 768
+                            if (isMobile) {
+                                // This will be handled by the parent's scrollToMobileSection
+                                const roleButton = document.querySelector('[aria-label="Go to role section"]') as HTMLButtonElement
+                                roleButton?.click()
+                            } else {
+                                document.getElementById('role')?.scrollIntoView({ behavior: 'smooth' })
+                            }
                         }}
                     >
                         Explore My Work
@@ -86,11 +94,11 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Minimal scroll indicator */}
+            {/* Minimal scroll indicator - Hidden on mobile with bottom tab */}
             <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+                className="hidden md:block absolute bottom-12 left-1/2 transform -translate-x-1/2"
             >
                 <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
             </motion.div>
