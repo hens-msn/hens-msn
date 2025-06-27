@@ -104,7 +104,7 @@ export default function About() {
                         className="max-w-xl mx-auto"
                     >
                         <blockquote className="text-lg text-slate-600 italic font-light">
-                            "Simplicity is the ultimate sophistication"
+                            &ldquo;Simplicity is the ultimate sophistication&rdquo;
                         </blockquote>
                     </motion.div>
 

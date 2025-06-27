@@ -82,7 +82,7 @@ export default function Contact() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4">
-                                Let's Connect
+                                Let&apos;s Connect
                             </h2>
                             <div className="w-16 h-px bg-gradient-to-r from-orange-500 to-red-500 mx-auto" />
                         </motion.div>

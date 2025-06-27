@@ -7,7 +7,7 @@ interface NavigationDotsProps {
 export default function NavigationDots({ sections, activeSection, scrollToSection }: NavigationDotsProps) {
     return (
         <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3">
-            {sections.map((section, index) => (
+            {sections.map((section, _) => (
                 <div key={section} className="relative group">
                     <button
                         onClick={() => scrollToSection(section)}

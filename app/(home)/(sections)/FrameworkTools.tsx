@@ -1,6 +1,6 @@
 "use client"
 
-import { Code2, Terminal, GitBranch, Zap, ExternalLink } from "lucide-react"
+import { Code2, Terminal, GitBranch, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function FrameworkTools() {

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { BookOpen, Clock, ArrowUpRight } from "lucide-react"
+import { Clock, ArrowUpRight } from "lucide-react"
 
 export default function Blog() {
     const articles = [
