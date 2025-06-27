@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useRef } from "react"
-import NavigationDots from "../../components/NavigationDots"
-import BottomTabBar from "../../components/BottomTabBar"
-import { useSection } from "../../hooks/useSection"
+import NavigationDots from "@/components/NavigationDots"
+import BottomTabBar from "@/components/BottomTabBar"
+import { useSection } from "@/hooks/useSection"
 
 export default function HomeClient({ children }: { children: React.ReactNode }) {
     const { sections, activeSection, scrollToSection, isMobile, setActiveSectionManually } = useSection()
