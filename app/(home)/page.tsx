@@ -2,7 +2,7 @@
 
 import Hero from "./(sections)/Hero"
 import Role from "./(sections)/Role"
-import Kontas from "./(sections)/Kontas"
+import FrameworkTools from "./(sections)/FrameworkTools"
 import About from "./(sections)/About"
 import Blog from "./(sections)/Blog"
 import Contact from "./(sections)/Contact"
@@ -13,7 +13,7 @@ export default async function Home() {
         <HomeClient>
             <Hero />
             <Role />
-            <Kontas />
+            <FrameworkTools />
             <About />
             <Blog />
             <Contact />

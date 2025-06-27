@@ -1,92 +1,142 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Heart, Coffee, Sparkles } from "lucide-react"
+import { Heart, Coffee, Code } from "lucide-react"
 
 export default function About() {
+    const highlights = [
+        {
+            icon: Coffee,
+            title: "Fresh Start 2024",
+            description: "Reset & modern mindset"
+        },
+        {
+            icon: Code,
+            title: "Clean Code",
+            description: "Simplicity & efficiency"
+        },
+        {
+            icon: Heart,
+            title: "AI-Powered",
+            description: "Assistant, not replacement"
+        }
+    ]
+
     return (
-        <div id="about" className="h-screen snap-start flex items-center justify-center relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-5">
-                <Heart className="w-96 h-96 -rotate-12" />
+        <section id="about" className="h-screen snap-start flex items-center justify-center relative">
+            {/* Background decoration */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/[0.02] rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-red-500/[0.02] rounded-full blur-3xl" />
             </div>
-            <motion.div 
-                className="absolute top-32 right-20 w-28 h-28 rounded-full bg-orange-500/10"
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                }}
-            />
-            <motion.div 
-                className="absolute bottom-32 left-20 w-36 h-36 rounded-full bg-green-500/10"
-                animate={{
-                    scale: [1.2, 1, 1.2],
-                    opacity: [0.5, 0.3, 0.5]
-                }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                }}
-            />
 
-            {/* Floating Icons */}
-            <motion.div 
-                className="absolute top-1/3 left-12"
-                animate={{
-                    y: [0, -15, 0],
-                }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                }}
-            >
-                <Coffee className="w-8 h-8 text-orange-400/20" />
-            </motion.div>
-            <motion.div 
-                className="absolute bottom-1/3 right-12"
-                animate={{
-                    y: [0, 15, 0],
-                }}
-                transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                }}
-            >
-                <Sparkles className="w-8 h-8 text-green-400/20" />
-            </motion.div>
+            <div className="w-full px-4 relative z-10 max-w-5xl mx-auto">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center space-y-12"
+                >
+                    {/* Header */}
+                    <div className="space-y-6">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-full border border-orange-500/20 mb-6">
+                                <Heart className="w-4 h-4 text-orange-500" />
+                                <span className="text-sm font-medium text-orange-600">My Story</span>
+                            </div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4">
+                                About Me
+                            </h2>
+                            <div className="w-16 h-px bg-gradient-to-r from-orange-500 to-red-500 mx-auto" />
+                        </motion.div>
+                        
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                        >
+                            Returned to tech in 2024 with fresh perspective. Building clean, efficient solutions 
+                            powered by modern tools and guided by simplicity.
+                        </motion.p>
+                    </div>
 
-            {/* Main Content */}
-            <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center max-w-3xl mx-auto space-y-8 px-4 relative z-10"
-            >
-                <h2 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 pb-1">
-                    My Journey 🚀
-                </h2>
-                <div className="space-y-6">
-                    <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
-                        Setelah break panjang dari dunia tech, di awal 2024 aku memutuskan utk &quot;reset&quot; & mendalami 
-                        coding dari perspektif baru. Dgn mindset fresh & passion utk memahami teknologi modern, 
-                        aku fokus pd pengembangan yg clean & efisien ✨
-                    </p>
-                    <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
-                        Aku percaya bhw kode yg baik adalah kode yg mudah dipahami. Dgn memanfaatkan AI sbg asisten 
-                        & tools modern lainnya, aku mengoptimalkan proses development sambil tetap mempertahankan 
-                        kontrol penuh atas setiap keputusan teknis 🎯
-                    </p>
-                    <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
-                        Journey ini membawaku utk menciptakan <span className="text-white font-medium">Kontas Framework</span>, 
-                        dimana aku bs menuangkan filosofi &quot;simplicity is the ultimate sophistication&quot; dlm bentuk 
-                        kode yg meaningful & maintainable 🚀
-                    </p>
-                </div>
-            </motion.div>
-        </div>
+                    {/* Highlights Grid */}
+                    <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+                        {highlights.map((item, index) => {
+                            const IconComponent = item.icon
+                            return (
+                                <motion.div
+                                    key={item.title}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
+                                    className="group"
+                                >
+                                    <div className="space-y-3 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-slate-200/50 hover:bg-white/70 hover:shadow-lg transition-all duration-300">
+                                        {/* Icon */}
+                                        <div className="flex justify-center">
+                                            <div className="w-12 h-12 rounded-lg bg-slate-100/80 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                <IconComponent className="w-6 h-6 text-slate-500" />
+                                            </div>
+                                        </div>
+                                        
+                                        {/* Content */}
+                                        <div className="text-center">
+                                            <h3 className="text-base font-medium text-slate-900 mb-1">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-sm text-slate-600">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+
+                    {/* Philosophy Quote - Compact */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        className="bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-xl p-6 border border-orange-500/10 max-w-2xl mx-auto"
+                    >
+                        <blockquote className="text-lg text-slate-700 italic font-light">
+                            "Simplicity is the ultimate sophistication"
+                        </blockquote>
+                    </motion.div>
+
+                    {/* Bottom CTA */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 1.0 }}
+                    >
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                            onClick={() => {
+                                document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })
+                            }}
+                        >
+                            Read My Thoughts
+                        </motion.button>
+                    </motion.div>
+                </motion.div>
+            </div>
+        </section>
     )
 } 

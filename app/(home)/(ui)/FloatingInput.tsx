@@ -3,7 +3,6 @@
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Send } from "lucide-react"
-import { cn } from "@/lib/utils"
 import ChatModal from "./ChatModal"
 import { useChat } from '../useChat'
 
@@ -42,13 +41,7 @@ export default function FloatingInput() {
                 >
                     <form 
                         onSubmit={handleSubmit}
-                        className={cn(
-                            "relative flex items-center gap-2 w-full",
-                            "p-2 rounded-2xl",
-                            "bg-white/5 backdrop-blur-xl",
-                            "border border-white/10",
-                            "shadow-[0_0_20px_rgba(0,0,0,0.3)]"
-                        )}
+                        className="relative flex items-center gap-3 w-full p-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-slate-200/50 shadow-xl shadow-slate-900/10"
                     >
                         <input
                             ref={inputRef}
@@ -56,23 +49,12 @@ export default function FloatingInput() {
                             value={message}
                             onChange={handleInputChange}
                             placeholder="Ask me anything..."
-                            className={cn(
-                                "flex-1 px-4 py-3 rounded-xl",
-                                "bg-white/5",
-                                "border border-white/10",
-                                "text-white placeholder:text-gray-400",
-                                "focus:outline-none focus:border-white/20",
-                                "transition-colors"
-                            )}
+                            className="flex-1 px-4 py-3 rounded-xl bg-slate-50/50 backdrop-blur-sm border border-slate-200/50 text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-orange-300 focus:bg-white/70 transition-all duration-300"
                         />
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className={cn(
-                                "p-3 rounded-xl",
-                                "bg-gradient-to-r from-orange-600 to-green-600",
-                                "hover:opacity-90 transition-opacity"
-                            )}
+                            className="p-3 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                             aria-label="Kirim pesan"
                         >
                             <Send className="w-5 h-5" />

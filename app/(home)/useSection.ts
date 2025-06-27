@@ -4,7 +4,7 @@ export const useSection = () => {
     const sections = useMemo(() => [
         "hero",
         "role",
-        "kontas",
+        "framework",
         "about",
         "blog",
         "contact"
@@ -22,7 +22,8 @@ export const useSection = () => {
                 }
             })
         }, {
-            threshold: 0.5
+            threshold: 0.3,
+            rootMargin: "-20% 0px -20% 0px"
         })
 
         // Observe all sections

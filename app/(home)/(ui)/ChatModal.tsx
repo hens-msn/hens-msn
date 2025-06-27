@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Send } from "lucide-react"
-import { cn } from "@/lib/utils"
 
 // === Types ===
 interface ChatMessage {
@@ -45,19 +44,8 @@ const messageStyles = {
 
 const inputStyles = {
     container: "p-4 border-t border-white/10",
-    field: cn(
-        "flex-1 px-4 py-3 rounded-xl",
-        "bg-white/5 border border-white/10",
-        "text-white placeholder:text-gray-400",
-        "focus:outline-none focus:border-white/20",
-        "transition-colors"
-    ),
-    button: (isLoading: boolean) => cn(
-        "p-3 rounded-xl w-[48px] h-[48px]",
-        "bg-gradient-to-r from-orange-600 to-green-600",
-        "hover:opacity-90 transition-opacity",
-        isLoading && "opacity-50 cursor-not-allowed"
-    )
+    field: "flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-400 focus:outline-none focus:border-white/20 transition-colors",
+    button: (isLoading: boolean) => `p-3 rounded-xl w-[48px] h-[48px] bg-gradient-to-r from-orange-600 to-green-600 hover:opacity-90 transition-opacity ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`
 }
 
 export default function ChatModal({ 
@@ -110,7 +98,7 @@ export default function ChatModal({
             animate={{ opacity: 1, y: 0 }}
             className={`flex ${isUser ? "justify-end" : "justify-start"}`}
         >
-            <div className={cn(messageStyles.base, isUser ? messageStyles.user : messageStyles.ai)}>
+            <div className={`${messageStyles.base} ${isUser ? messageStyles.user : messageStyles.ai}`}>
                 {text || (isStreaming && (
                     <motion.div
                         animate={loadingAnimation}

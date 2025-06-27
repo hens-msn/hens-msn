@@ -1,90 +1,99 @@
 "use client"
 
-import { Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { useRotatingText } from "../useRotatingText"
 
 export default function Hero() {
-    const welcomeTexts = [
-        "Yuk bikin sesuatu yg keren! ⚡",
-        "Mari berkreasi bareng! 🚀",
-        "Siap eksplor hal baru? 💫",
-        "Let's build something cool! 🔥"
-    ]
-
-    const { currentTextIndex } = useRotatingText({ texts: welcomeTexts })
-
     return (
-        <motion.div 
+        <motion.section 
             id="hero"
-            className="h-screen snap-start flex items-center justify-center"
+            className="h-screen snap-start flex items-center justify-center relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
         >
-            <div className="flex flex-col items-center px-4">
-                {/* Profile Image */}
-                <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-[280px] md:h-[280px] group mb-6 sm:mb-8">
-                    <motion.div 
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100 }}
-                        className="absolute inset-0 bg-gradient-to-br from-orange-500 via-yellow-500 to-green-500 rounded-3xl rotate-6 opacity-75 blur-2xl group-hover:blur-3xl transition-all duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-yellow-500 to-green-500 rounded-3xl rotate-6" />
-                    <video 
-                        src="/hens-fire.mp4"
-                        className={cn(
-                            "relative object-cover rounded-3xl shadow-xl w-full h-full",
-                            "transition-all duration-500 group-hover:scale-[1.02] group-hover:rotate-1"
-                        )}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                    />
-                    <motion.div 
-                        animate={{ 
-                            y: [0, -10, 0],
-                            rotate: [0, -5, 5, 0]
-                        }}
-                        transition={{ 
-                            duration: 4,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                        className="absolute -bottom-4 -right-4 bg-white/10 backdrop-blur-xl p-3 rounded-2xl shadow-lg"
-                    >
-                        <Sparkles className="w-6 h-6 text-yellow-300" />
-                    </motion.div>
-                </div>
-                
-                {/* Name */}
-                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-center mb-4">
-                    Hendy Mamusung
-                </h1>
-
-                {/* Welcome Text */}
-                <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring" }}
+            <div className="text-center space-y-8 max-w-4xl mx-auto">
+                {/* Profile Avatar */}
+                <motion.div 
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="relative w-40 h-40 mx-auto mb-12"
                 >
-                    <div className="relative h-12 flex items-center justify-center">
-                        {welcomeTexts.map((text, index) => (
-                            <span
-                                key={index}
-                                className="rotating-text absolute text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 font-medium text-lg sm:text-2xl transition-all duration-500"
-                                style={{ 
-                                    opacity: index === currentTextIndex ? 1 : 0,
-                                    transform: index === currentTextIndex ? 'translateY(0)' : 'translateY(10px)',
-                                    width: 'max-content'
-                                }}
-                            >
-                                {text}
-                            </span>
-                        ))}
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full blur-2xl scale-110" />
+                    
+                    {/* Main avatar container */}
+                    <div className="relative w-full h-full rounded-full border-2 border-white/80 backdrop-blur-sm bg-white/80 shadow-2xl overflow-hidden">
+                        <video 
+                            src="/hens-fire.mp4"
+                            className="w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                        
+                        {/* Inner border for depth */}
+                        <div className="absolute inset-1 rounded-full border border-white/20" />
                     </div>
                 </motion.div>
+
+                {/* Name & Title */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="space-y-4"
+                >
+                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-slate-900">
+                        Hendy Mamusung
+                    </h1>
+                    <div className="w-12 h-px bg-gradient-to-r from-orange-500 to-red-500 mx-auto" />
+                </motion.div>
+
+                {/* Subtitle */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="space-y-3"
+                >
+                    <p className="text-lg sm:text-xl text-slate-600 font-light">
+                        Framework Developer
+                    </p>
+                    <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto leading-relaxed">
+                        Building the future with clean code and innovative solutions
+                    </p>
+                </motion.div>
+
+                {/* CTA */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="pt-8"
+                >
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-8 py-3 bg-white border border-slate-200 rounded-full text-slate-700 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:bg-slate-50"
+                        onClick={() => {
+                            document.getElementById('role')?.scrollIntoView({ behavior: 'smooth' })
+                        }}
+                    >
+                        Explore My Work
+                    </motion.button>
+                </motion.div>
             </div>
-        </motion.div>
+
+            {/* Minimal scroll indicator */}
+            <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            >
+                <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-300 to-transparent" />
+            </motion.div>
+        </motion.section>
     )
 } 

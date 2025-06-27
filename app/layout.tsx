@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Lora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const lora = Lora({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-lora",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${lora.variable} font-sans text-white`}>
+    <html lang="en">
+      <body className={`${inter.variable} font-sans text-slate-900 antialiased`}>
         {children}
       </body>
     </html>
